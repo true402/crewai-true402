@@ -4,12 +4,13 @@ build-backend = "hatchling.build"
 
 [project]
 name = "crewai-true402"
-version = "0.1.0"
+version = "1.0.0"
 description = "true402 tools for CrewAI — pay-per-call on-chain rug/honeypot & address safety for Base AI agents over x402 (USDC, no account, no API key)."
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.10"
 keywords = ["crewai", "crewai-tools", "x402", "base", "rug-check", "honeypot", "token-safety", "crypto", "ai-agent", "agent-tools", "defi", "web3"]
+classifiers = ["Development Status :: 5 - Production/Stable"]
 authors = [{ name = "true402", email = "contact@true402.dev" }]
 dependencies = [
     "requests>=2.28",

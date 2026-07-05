@@ -1,5 +1,7 @@
 # crewai-true402
 
+[![PyPI version](https://img.shields.io/pypi/v/crewai-true402)](https://pypi.org/project/crewai-true402/) &nbsp; **Stable · production-ready** — semver-stable public API (v1.0).
+
 **[true402](https://true402.dev) tools for [CrewAI](https://www.crewai.com)** — give a Base trading agent a pre-trade **rug/honeypot check** it pays for per call over [x402](https://x402.org) (USDC on Base). No accounts, no API keys — the wallet is the identity. The safety checks have a **free daily trial**, so the tools work out of the box with no wallet configured.
 
 ## Install
