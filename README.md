@@ -68,6 +68,13 @@ The client **refuses to sign** anything that isn't USDC-on-Base within `max_amou
 
 **Checking tokens by hand?** Send any Base token address to [@True402bot](https://t.me/True402bot) on Telegram — same on-chain checks, free, no wallet.
 
+## Also available for
+
+MCP (Claude Code / Desktop, Cursor, **Hermes**) · **Hermes Agent** · **OpenClaw** · **ElizaOS** ·
+**LangChain** · **CrewAI** · **Vercel AI SDK** · **Coinbase AgentKit** · **Virtuals GAME** · CLI —
+same on-chain checks, one install command each:
+**[true402.dev/integrations](https://true402.dev/integrations)**
+
 ## License
 
 MIT
