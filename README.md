@@ -66,6 +66,8 @@ The client **refuses to sign** anything that isn't USDC-on-Base within `max_amou
 - API reference: <https://true402.dev/docs/api> · OpenAPI: <https://true402.dev/openapi.json>
 - Also available: [LangChain](https://www.npmjs.com/package/@true402.dev/langchain) · [MCP server](https://www.npmjs.com/package/@true402.dev/mcp-server) · [CLI](https://www.npmjs.com/package/@true402.dev/rugcheck)
 
+**Checking tokens by hand?** Send any Base token address to [@True402bot](https://t.me/True402bot) on Telegram — same on-chain checks, free, no wallet.
+
 ## License
 
 MIT
