@@ -2,7 +2,7 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/crewai-true402)](https://pypi.org/project/crewai-true402/) &nbsp; **Stable · production-ready** — semver-stable public API (v1.0).
 
-**[true402](https://true402.dev) tools for [CrewAI](https://www.crewai.com)** — give a Base trading agent a pre-trade **rug/honeypot check** it pays for per call over [x402](https://x402.org) (USDC on Base). No accounts, no API keys — the wallet is the identity. The safety checks have a **free daily trial**, so the tools work out of the box with no wallet configured.
+**[true402](https://true402.dev) tools for [CrewAI](https://www.crewai.com)** — give an agent a pre-trade **rug/honeypot check** for Base tokens AND **search/SEO data** (backlinks, keyword volume, rankings, keyword ideas), each paid for per call over [x402](https://x402.org) (USDC on Base). No accounts, no API keys — the wallet is the identity. Most of the on-chain safety checks have a **free daily trial**, so those tools work out of the box with no wallet configured; `true402_deployer_check` and the search/SEO tools are paid from the first call.
 
 ## Install
 
@@ -17,7 +17,7 @@ from crewai import Agent
 from crewai_true402 import true402_tools
 
 # Reads PAYER_PRIVATE_KEY from the env (a Base wallet holding a little USDC).
-# Omit the key to rely on the free daily trial for the safety stalls.
+# Omit the key to rely on the free daily trial for most safety stalls (not true402_deployer_check).
 tools = true402_tools()
 
 trader = Agent(
@@ -28,7 +28,7 @@ trader = Agent(
 )
 ```
 
-The agent gets four tools:
+The agent gets ten tools:
 
 | Tool | What | Price |
 |------|------|-------|
@@ -37,7 +37,11 @@ The agent gets four tools:
 | `true402_address_safety` | Profile + risk for any address before you send/approve/call it (EOA vs contract, balances, proxy detection). | ~$0.005 |
 | `true402_tx_preflight` | Check an **unsigned** transaction before signing: does it revert, does it grant an unlimited approval, has the counterparty been draining liquidity. Takes no key and no signature. | ~$0.008 |
 | `true402_liquidity_history` | What already happened to a token's liquidity — every removal with amount/block/tx, plus the tokens drained in the same transaction. | ~$0.005 |
-| `true402_deployer_check` | Deployer wallet reputation — age, contracts shipped, fresh-throwaway flag — to catch serial ruggers. | ~$0.008 |
+| `true402_deployer_check` | Deployer wallet reputation — age, contracts shipped, fresh-throwaway flag — to catch serial ruggers. **No free trial — paid from the first call.** | ~$0.008 |
+| `true402_backlinks` | A domain's backlink profile — referring domains/pages, dofollow split, authority rank, spam score. | ~$0.10 |
+| `true402_keyword_volume` | Search volume, CPC, competition and trend for **up to 200 keywords in one call** — priced per call, not per keyword, so batch the list. | ~$0.15 |
+| `true402_ranked_keywords` | Which keywords a domain already ranks for, with position and the ranking URL. Works on any domain — competitor research as much as self-audit. | ~$0.05 |
+| `true402_keyword_ideas` | Related and long-tail keyword ideas for a seed term, with search volume and intent. | ~$0.05 |
 
 ## Configuration
 
@@ -48,7 +52,7 @@ from crewai_true402 import true402_tools, PayOpts
 
 tools = true402_tools(PayOpts(
     payer_private_key="0x…",   # a Base wallet with a little USDC (gas is sponsored; USDC only)
-    max_amount_usd=0.10,        # hard per-call ceiling — refuses to sign a 402 demanding more
+    max_amount_usd=0.25,        # hard per-call ceiling — refuses to sign a 402 demanding more
 ))
 ```
 
@@ -60,7 +64,7 @@ tools = true402_tools(PayOpts(
 
 ## Safety
 
-The client **refuses to sign** anything that isn't USDC-on-Base within `max_amount_usd` (default $0.10) — so a rogue or compromised endpoint can't make your agent authorize an unexpected asset, network, or amount. The private key is used only to sign locally; it never leaves the process.
+The client **refuses to sign** anything that isn't USDC-on-Base within `max_amount_usd` (default $0.25, above the server's own $0.20 per-request ceiling so a legitimately-priced stall is never blocked) — so a rogue or compromised endpoint can't make your agent authorize an unexpected asset, network, or amount. The private key is used only to sign locally; it never leaves the process.
 
 ## Links
 
