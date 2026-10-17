@@ -74,6 +74,12 @@ The client **refuses to sign** anything that isn't USDC-on-Base within `max_amou
 
 **Checking tokens by hand?** Send any Base token address to [@True402bot](https://t.me/True402bot) on Telegram — same on-chain checks, free, no wallet.
 
+## Guides
+
+- [Add a rug check to a CrewAI agent](https://true402.dev/guides/rug-check-crewai-agent)
+- [Token price and rug risk in one call](https://true402.dev/guides/token-price-and-rug-check-api)
+- [The x402 protocol, explained](https://true402.dev/guides/what-is-x402)
+
 ## Also available for
 
 MCP (Claude Code / Desktop, Cursor, **Hermes**) · **Hermes Agent** · **OpenClaw** · **ElizaOS** ·
