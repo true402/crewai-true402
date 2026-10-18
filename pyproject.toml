@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "crewai-true402"
-version = "1.4.3"
+version = "1.4.4"
 description = "true402 tools for CrewAI — pay-per-call on-chain rug/honeypot & address safety, plus search/SEO data (backlinks, keyword volume, ranked keywords, keyword ideas), for Base AI agents over x402 (USDC, no account, no API key)."
 readme = "README.md"
 license = { text = "MIT" }

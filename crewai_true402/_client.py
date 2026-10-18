@@ -6,6 +6,6 @@ to pyproject.toml.
 """
 
 CLIENT_ID = "crewai"
-VERSION = "1.4.3"
+VERSION = "1.4.4"
 PACKAGE = "crewai-true402"
 INSTALL = "pip install -U crewai-true402"
