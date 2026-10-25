@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "crewai-true402"
-version = "1.4.4"
+version = "1.4.5"
 description = "true402 tools for CrewAI — pay-per-call on-chain rug/honeypot & address safety, plus search/SEO data (backlinks, keyword volume, ranked keywords, keyword ideas), for Base AI agents over x402 (USDC, no account, no API key)."
 readme = "README.md"
 license = { text = "MIT" }
@@ -13,9 +13,9 @@ keywords = ["crewai", "crewai-tools", "x402", "base", "rug-check", "honeypot", "
 classifiers = ["Development Status :: 5 - Production/Stable"]
 authors = [{ name = "true402", email = "contact@true402.dev" }]
 dependencies = [
-    "requests>=2.28",
+    "requests>=2.33.0",
     "eth-account>=0.11",
-    "pydantic>=2.0",
+    "pydantic>=2.4",
     # crewai_true402/tools.py does an unconditional `from crewai.tools import BaseTool` at import
     # time (pulled in by __init__.py), so this cannot be optional: `pip install crewai-true402`
     # followed by `import crewai_true402` raised ModuleNotFoundError until this moved out of
